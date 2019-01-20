@@ -3,12 +3,22 @@ import { Link, graphql } from "gatsby"
 import { css } from "@emotion/core"
 import { rhythm } from "../utils/typography"
 import Layout from "../components/layout"
+import indexStyles from "../styles/index.css"
+
 
 export default ({ data }) => {
   console.log(data)
   return (
     <Layout>
-      <div>
+      <div className="test center">
+
+  			<div id="selfperson"></div>
+  			<h1 className="name">Marisha Hoza</h1>
+  			<h1>Full Stack Web Developer - Artist</h1>
+  			<p>Skip to <a href="" target="_blank" rel="noopener noreferrer">my paper resume </a>*to be added*</p>
+        <p>Please pardon the mess, I am in the middle of moving my portfolio to this location. </p>
+
+        {/*
         <h1
           css={css`
             display: inline-block;
@@ -46,6 +56,8 @@ export default ({ data }) => {
             </Link>
           </div>
         ))}
+        */}
+
       </div>
     </Layout>
   )
