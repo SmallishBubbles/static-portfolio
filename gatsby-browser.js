@@ -1,3 +1,2 @@
-import "./src/styles/global.css"
-// or:
-// require('./src/styles/global.css')
+// this used to point to a global css sheet
+// however, styling has been updated to use styled components
