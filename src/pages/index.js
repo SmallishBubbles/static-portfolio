@@ -1,11 +1,20 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import { css } from "@emotion/core"
-import { rhythm } from "../utils/typography"
+// import { css } from "@emotion/core"
+// import { rhythm } from "../utils/typography"
 import Layout from "../components/layout"
-import indexStyles from "../styles/index.css"
 import styled from "styled-components"
+import PersonalPreferences from "../components/personal-preferences"
+
+// ---- move to png files and gatsby image later
 import selfperson from "../images/icons/selfperson.svg"
+import forest from "../images/aboutmeforestbluelong.svg"
+
+
+
+
+
+// ------------------ Styling ------------------
 
 const Section = styled.div `
   max-width: 100%;
@@ -36,6 +45,70 @@ const HeaderTitle = styled.h1 `
   font-family: 'Open Sans', sans-serif;
 `
 
+const Section2 = styled(Section) `
+  background-image: url(${forest});
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 100vw;
+  height: 75vw;
+`
+
+
+
+// --------------------- main wrappers ---------------------------
+const WrapperLeft = styled.div`
+	width: 47%;
+	// background-color: #344f76;
+	height: 83%;
+	margin-left: 2%;
+	margin-top: 12%;
+	float: left;
+	border-radius: 30px 400px 30px 30px;
+`;
+
+const WrapperRight = styled.div`
+	width: 47%;
+	background-color: #344f76;
+	height: auto;
+	margin-right: 2%;
+	margin-top: 27%;
+	float: right;
+	border-radius: 400px 30px 30px 30px;
+	padding: 2vh 0% 1vh;
+`;
+
+const Skill = styled.div`
+	width: 90%;
+	height: auto;
+	border-radius: 20px;
+	margin: 2% 2%;
+	padding: 1% 1%;
+	background-color: #344f76;
+	font-size: 1.5vw;
+`;
+
+const Blurb = styled.div`
+	width: 85%;
+	height: auto;
+	border-radius: 20px 350px 20px 20px;
+	margin: 10% 2% 4%;
+	background-color: #344f76;
+	padding: 5%;
+	font-size: 2.5vw;
+  text-align:left;
+`;
+
+const Right = styled.div`
+	text-align: right;
+	margin-top: 3%;
+	font-style: italic;
+`
+
+
+
+// ------------------- render -----------------------
+
+
 export default ({ data }) => {
   console.log(data)
   return (
@@ -47,9 +120,36 @@ export default ({ data }) => {
   			<p>Skip to <a href="" target="_blank" rel="noopener noreferrer">my paper resume </a>*to be added*</p>
         <p>Please pardon the mess, I am in the middle of moving my portfolio to this location. </p>
       </Section>
-      <Section>
 
-      </Section>
+
+      <Section2>
+        <WrapperLeft>
+					<Blurb>
+						<div>
+							Capability is not based on
+							<br/>
+							age or experience, but on how much you're willing to learn.
+							<br/>
+						</div>
+						<Right>
+							- Stacey Abrams
+						</Right>
+					</Blurb>
+					<Skill>HTML</Skill>
+					<Skill>CSS</Skill>
+					<Skill>JavaScript</Skill>
+					<Skill>React</Skill>
+					<Skill>GraphQL</Skill>
+					<Skill>Node / Express</Skill>
+					<Skill>NPM & Yarn</Skill>
+					<Skill>Git & GitHub</Skill>
+          <Skill>Adobe Suite</Skill>
+				</WrapperLeft>
+
+        <WrapperRight>
+          <PersonalPreferences/>
+        </WrapperRight>
+      </Section2>
 
 
 

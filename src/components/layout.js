@@ -5,6 +5,9 @@ import mountainImg from "../images/overviewmountainnostrokelong.svg"
 
 
 
+// ------------------ Styling ------------------
+
+
 const Background = styled.div`
   @import url('https://fonts.googleapis.com/css?family=Josefin+Slab|Open+Sans:300,400|Sacramento');
   margin: 0%;
@@ -28,6 +31,9 @@ const NavItem = styled.h3`
   font-family: 'Josefin Slab', serif;
   float: right;
 `
+
+
+// ------------------- render -----------------------
 
 
 export default ({ children }) => (
