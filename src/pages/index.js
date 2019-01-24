@@ -30,6 +30,7 @@ const Section = styled.div `
   min-height: 90vh;
   margin: 0%;
   text-align: center;
+  border: 0.1px solid transparent;
 `
 const Selfperson = styled.div `
   width: 10em;
@@ -59,7 +60,7 @@ const Section2 = styled(Section) `
   background-repeat: no-repeat;
   background-size: 100%;
   width: 100vw;
-  //height: 75vw;
+  height: 75vw;
 `
 
 
@@ -131,9 +132,9 @@ const Title = styled.div`
 	margin: 2vh auto;
 	padding: 2px;
 	height: auto;
-	width: 50%;
+	width: 90%;
 	text-align: center;
-	font-size: 3em;
+	font-size: 2.5em;
 	font-family: 'Sacramento', cursive;
 `
 
@@ -146,7 +147,7 @@ const TimeSection = styled.div`
 
 const ExperienceL = styled.div`
 	height: auto;
-	width: 45%;
+	width: 43%;
   min-width: 300px;
 	background-color: #344F76;
 	margin: 2vw;
@@ -155,7 +156,7 @@ const ExperienceL = styled.div`
 	box-shadow: -2px -2px 5px inset #2d4465;
 	padding: 1%;
   @media (max-width:700px){
-    margin-left: 10vw;
+    margin-left: 15vw;
   }
 `
 
@@ -163,7 +164,7 @@ const ExperienceR = styled(ExperienceL)`
   float: right;
   @media (max-width:700px){
     float: none;
-    margin-left: 10vw;
+    margin-left: 15vw;
   }
 `
 
@@ -190,21 +191,21 @@ const TimeArrow = styled.div`
   border-left: 20px solid #344F76;
   position: absolute;
   margin-top: 5vw;
-  margin-left: 46.5%;
+  margin-left: 44.5%;
   box-shadow: -2px -2px 5px inset #2d4465;
   @media (max-width:700px){
-    margin-left: 7.5vw;
+    margin-left: 11.5vw;
     transform: rotate(180deg);
   }
 `
 const TimeArrowL = styled(TimeArrow)`
   right: 0;
   margin-left: auto;
-  margin-right: 46.5%;
+  margin-right: 44.5%;
   transform: rotate(180deg);
   @media (max-width:700px){
     left: 0;
-    margin-left: 7.5vw;
+    margin-left: 11.5vw;
     transform: rotate(180deg);
   }
 `
@@ -221,7 +222,7 @@ const TimeDot = styled.div`
   border-radius: 50%;
   background-color: #2d4465;
   @media (max-width:700px){
-    margin-left: 3.5vw;
+    margin-left: 2.5vw;
   }
 `
 
@@ -230,19 +231,20 @@ const TimeDot = styled.div`
 
 const Section4 = styled(Section)`
   background-color: #2D4465;
-  margin: -1em 0em;
   width: 100vw;
-  height: 75vw;
-  position: relative;
+  height: auto;
+  min-height: 80vh;
 `
 
 const Project = styled.div`
-	width: 30%;
-	height: 30%;
+	width: 25vw;
+  min-width: 250px;
+	height: 20vw;
+  min-height: 200px;
 	display: inline-block;
-	margin: 5% 0% 0% 2%;
-	border-radius: 20px;
-	text-align: center;
+	margin: 2%;
+  border-radius: 32% 68% 31% 69% / 47% 17% 83% 53%;
+  text-align: center;
 	box-shadow: 0px 2px 10px;
 	padding-top: 10%;
 	font-size: 3vw;
