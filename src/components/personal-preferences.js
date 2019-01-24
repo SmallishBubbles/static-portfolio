@@ -110,7 +110,7 @@ const Test = styled.div`
 	display: block;
 	float: right;
 	clear: right;
-	margin: 1em 1em 0em 0em;
+	margin: 1.5em 1em 0em 0em;
 	padding: 0%
 `
 
@@ -149,6 +149,7 @@ export default () => (
           <InOutSlider/>
         </SliderBox>
         <Mountains/>
+
       </Test>
       <Test>
         <Unicorn/>
