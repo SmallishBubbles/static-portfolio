@@ -59,7 +59,7 @@ const Section2 = styled(Section) `
   background-repeat: no-repeat;
   background-size: 100%;
   width: 100vw;
-  height: 75vw;
+  //height: 75vw;
 `
 
 
@@ -116,99 +116,124 @@ const Right = styled.div`
 // experience Section
 
 const Section3 = styled(Section)`
-  background-color: #477ab2;
-  background-repeat: no-repeat;
-  background-size: 104%;
+  background-color: #2D4465;
   width: 100vw;
-  height: 79vw;
+  height: auto;
   margin-top: -1em;
+  position: relative;
+  overflow: hidden;
+  min-height: 100px;
 `
 
 const Title = styled.div`
 	float: center;
 	clear: both;
-	margin: auto;
+	margin: 2vh auto;
 	padding: 2px;
 	height: auto;
 	width: 50%;
 	text-align: center;
 	font-size: 3em;
 	font-family: 'Sacramento', cursive;
-`;
+`
 
-const Education = styled.div`
-	float: left;
-	clear: left;
-	height: auto;
-	width: 30%;
-	background-color: white;
-	//background-color: rgb(161, 171, 175, 0.75);
-	margin: 7vw 2vw;
-	border-radius: 5px 30px;
-	text-align: center;
-	box-shadow: -2px -2px 5px inset #2d4465;
-	padding: 1%;
-`;
+const TimeSection = styled.div`
+  width: 100vw;
+  height: auto;
+  float: left;
+  clear: both;
+`
 
-const Job = styled.div`
-	float: right;
-	clear: right;
+const ExperienceL = styled.div`
 	height: auto;
-	width: 30%;
-	background-color: white;
-	//background-color: rgb(161, 171, 175, 0.75);
-	margin-right: 2vw;
-	border-radius: 30px 5px;
-	text-align: center;
-	box-shadow: 2px -2px 5px inset #2d4465;
-	padding: 1%;
-`;
-
-const Resume = styled.div`
-	float: left;
-	clear: left;
-	height: auto;
-	width: 30%;
-	background-color: white;
-	//background-color: rgb(161, 171, 175, 0.75);
+	width: 45%;
+  min-width: 300px;
+	background-color: #344F76;
 	margin: 2vw;
-	border-radius: 5px 30px;
+	border-radius: 25px;
 	text-align: center;
 	box-shadow: -2px -2px 5px inset #2d4465;
 	padding: 1%;
-`;
+  @media (max-width:700px){
+    margin-left: 10vw;
+  }
+`
 
-const TimelineBox = styled.div`
-	margin: 0% auto;
-	height: 100%;
-	width: 30%;
+const ExperienceR = styled(ExperienceL)`
+  float: right;
+  @media (max-width:700px){
+    float: none;
+    margin-left: 10vw;
+  }
 `
 
 const Timeline = styled.div`
-	height: 80%;
+	height: 90%;
 	width: 5px;
 	border-radius: 5px;
 	background-color: darkgrey;
-	margin 10% auto;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2%;
+  left: 0;
+  right: 0;
+  @media (max-width:700px){
+    margin-left: 5vw;
+  }
+`
+const TimeArrow = styled.div`
+  width: 0;
+  height: 0;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 20px solid #344F76;
+  position: absolute;
+  margin-top: 5vw;
+  margin-left: 46.5%;
+  box-shadow: -2px -2px 5px inset #2d4465;
+  @media (max-width:700px){
+    margin-left: 7.5vw;
+    transform: rotate(180deg);
+  }
+`
+const TimeArrowL = styled(TimeArrow)`
+  right: 0;
+  margin-left: auto;
+  margin-right: 46.5%;
+  transform: rotate(180deg);
+  @media (max-width:700px){
+    left: 0;
+    margin-left: 7.5vw;
+    transform: rotate(180deg);
+  }
+`
+const TimeDot = styled.div`
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5.25vw;
+  width: 25px;
+  height: 25px;
+  border: 5px solid darkgrey;
+  border-radius: 50%;
+  background-color: #2d4465;
+  @media (max-width:700px){
+    margin-left: 3.5vw;
+  }
 `
 
-const Line = styled.div`
-	position: relative;
-	top: -73%;
-	height: auto;
-	border-bottom: 5px solid darkgrey;
-	width: 50%;
-	padding: 0%;
-	text-align: center;
-`
 
 // portfolio
 
 const Section4 = styled(Section)`
-  background-color: #7bb1dd;
+  background-color: #2D4465;
   margin: -1em 0em;
   width: 100vw;
   height: 75vw;
+  position: relative;
 `
 
 const Project = styled.div`
@@ -221,7 +246,7 @@ const Project = styled.div`
 	box-shadow: 0px 2px 10px;
 	padding-top: 10%;
 	font-size: 3vw;
-	background-color: #2c4364;
+	background-color: #344F76;
 `
 
 
@@ -273,43 +298,65 @@ export default ({ data }) => {
 
       <Section3>
       <Title> Experience </Title>
-      <Education>
-        <img src={SkillSpire} width="50%" height="auto" alt="SkillSpire Logo"/>
-        <p> Full Stack Web Devolopment Bootcamp </p>
-      </Education>
-      <Job>
-        <img src={Arrow} width="45%" height="auto" alt="Arrow Emblems Logo"/>
-        <p> UI Designer - Customer Service Rep </p>
-      </Job>
-      <Education>
-        <img src={OCLogo} width="50%" height="auto" alt="OC Logo"/>
-        <p> BBA / Art Minor </p>
-      </Education>
-      <Job>
-        <img src={StateStreet} width="50%" height="auto" alt="State Street Logo"/>
-        <p> Functional Specialist / Financial Accountant </p>
-      </Job>
-      <Resume>
-        <a href="https://docs.google.com/document/d/1sBd1nafkn6v_ANm2CfoswxE_QdpmZZKLoVMjNVoalNE/edit?usp=sharing" target="_blank" rel="noopener noreferrer">
-        <img src={Paper} width="35%" height="auto" alt="Origami Paper Boat"/>
-        </a>
-        <p> Prefer to see my resume in <a href="https://docs.google.com/document/d/1sBd1nafkn6v_ANm2CfoswxE_QdpmZZKLoVMjNVoalNE/edit?usp=sharing" target="_blank" rel="noopener noreferrer">paper format?</a>
-        <br/>
-        **** links need updated ****
-        </p>
-      </Resume>
-      <Job>
-        <img src={SpicyEskimo} width="50%" height="auto" alt="Spicy Eskimo Art Logo"/>
-        <p> Freelance Art </p>
-      </Job>
-      <TimelineBox>
-        <Timeline/>
-        <Line>March-July 2018</Line>
-        <Line id="arr">Current</Line>
-        <Line id="state">Jan 2016-Aug 2017</Line>
-        <Line id="OC"> 2011-2015 </Line>
-        <Line id="art"> Ongoing </Line>
-      </TimelineBox>
+      <Timeline/>
+      <TimeSection>
+        <TimeArrow/>
+        <TimeDot/>
+        <ExperienceL>
+          <img src={SkillSpire} width="50%" height="auto" alt="SkillSpire Logo"/>
+          <p> Full Stack Web Devolopment Bootcamp </p>
+          <p> March-July 2018 </p>
+        </ExperienceL>
+      </TimeSection>
+      <TimeSection>
+        <TimeArrowL/>
+        <TimeDot/>
+        <ExperienceR>
+          <img src={Arrow} width="45%" height="auto" alt="Arrow Emblems Logo"/>
+          <p> UI Designer - Customer Service Rep </p>
+          <p> Current </p>
+        </ExperienceR>
+      </TimeSection>
+      <TimeSection>
+        <TimeArrow/>
+        <TimeDot/>
+        <ExperienceL>
+          <img src={OCLogo} width="50%" height="auto" alt="OC Logo"/>
+          <p> BBA / Art Minor </p>
+          <p> 2011-2015 </p>
+        </ExperienceL>
+      </TimeSection>
+      <TimeSection>
+        <TimeArrowL/>
+        <TimeDot/>
+        <ExperienceR>
+          <img src={StateStreet} width="50%" height="auto" alt="State Street Logo"/>
+          <p> Functional Specialist / Financial Accountant </p>
+          <p> Jan 2016 - Aug 2017 </p>
+        </ExperienceR>
+      </TimeSection>
+      <TimeSection>
+        <TimeArrow/>
+        <TimeDot/>
+        <ExperienceL>
+          <a href="https://docs.google.com/document/d/1sBd1nafkn6v_ANm2CfoswxE_QdpmZZKLoVMjNVoalNE/edit?usp=sharing" target="_blank" rel="noopener noreferrer">
+          <img src={Paper} width="35%" height="auto" alt="Origami Paper Boat"/>
+          </a>
+          <p> Prefer to see my resume in <a href="https://docs.google.com/document/d/1sBd1nafkn6v_ANm2CfoswxE_QdpmZZKLoVMjNVoalNE/edit?usp=sharing" target="_blank" rel="noopener noreferrer">paper format?</a>
+          <br/>
+          **** links need updated ****
+          </p>
+        </ExperienceL>
+      </TimeSection>
+      <TimeSection>
+        <TimeArrowL/>
+        <TimeDot/>
+        <ExperienceR>
+          <img src={SpicyEskimo} width="50%" height="auto" alt="Spicy Eskimo Art Logo"/>
+          <p> Freelance Art </p>
+          <p> Ongoing </p>
+        </ExperienceR>
+      </TimeSection>
     </Section3>
 
     <Section4>
