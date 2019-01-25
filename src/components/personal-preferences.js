@@ -1,5 +1,8 @@
-import React from "react"
+import React, { Component } from "react"
 import styled from "styled-components"
+
+// hopefully Animate
+import FadeLeft from "./animate-fade-left"
 
 // icons
 import cat from "../images/icons/cat.svg"
@@ -104,90 +107,130 @@ const DrinkSlider = styled(Slider)`
   left: 30%;
 `
 
-const Test = styled.div`
-	height: 8.5vw;
-	width: 50%;
-	display: block;
+const WrapperRight = styled.div`
+	width: 47%;
+  display: relative;
+	background-color: #344f76;
+	height: auto;
+	margin-right: 2%;
+	margin-top: 35%;
+  margin-bottom: 1em;
 	float: right;
-	clear: right;
-	margin: 1.5em 1em 0em 0em;
-	padding: 0%
+  border-radius: 67% 8% 8% 8% / 38% 8% 8% 8%;
+	// border-radius: 400px 30px 30px 30px;
+	padding: 2vh 0% 1vh;
 `
 
-const Test2 = styled.div`
-	height: 20vw;
-	width: 38%;
-	display: block;
-	float: left;
-	clear: left;
-	margin: 3% 0% 0% 3%;
+const ChoiceBox = styled.div`
+	height: 8.5vw;
+	width: 50%;
+  min-width: 150px;
+  min-height: 55px;
+  float: right;
+  clear: right;
+	margin: 1.5em 1em 0em auto;
+	padding: 0%;
+`
+
+const AboutTitle = styled(ChoiceBox)`
+  height: auto;
+  text-align: center;
+  font-size: 2.5em;
+  font-family: 'Sacramento', cursive;
+  margin-right: 0.5em;
+  margin-top: 0;
+  margin-bottom: -0.75em;
+  @media (max-width:800px){
+    font-size: 2em;
+  }
+  @media (max-width:700px){
+    font-size: 1.5em;
+  }
 `
 
 const Test3 = styled.div`
-	height: 48%;
 	width: 38%;
-	display: block;
+  min-width: 150px;
 	float: left;
-	clear: left;
-	margin: 3% 0% 0% 3%;
+  clear: left;
+	margin: 20% 0% 0% 3%;
 	text-align: center;
-	font-size: 2.5vw;
+	font-size: calc(10px + 1.5vw);
 	color: #686c4f;
-`;
+  @media (max-width:700px){
+    float: right;
+    clear: right;
+    margin: 0 8%;
+  }
+`
+
+const Fact = styled.div`
+  height: auto;
+  width: 100%;
+  text-align: center;
+  margin: 30% 0;
+  @media (max-width:700px){
+    margin: 8% 0;
+  }
+`
 
 
 
 
 export default () => (
-    <div>
-      <Test2 />
+  <FadeLeft>
+    <WrapperRight>
+      <AboutTitle>
+        About Me
+      </AboutTitle>
 
-      <Test>
+      <Test3>
+        <Fact>
+          Motto:<br/>
+          Be uncommon.
+        </Fact>
+        <Fact>
+          Hometown:<br/>
+          North Pole, AK
+        </Fact>
+        <Fact>
+          Visit <a href="/feed">my blog</a>
+        </Fact>
+
+      </Test3>
+
+      <ChoiceBox>
         <City/>
         <SliderBox>
           <SliderLine/>
           <InOutSlider/>
         </SliderBox>
         <Mountains/>
-
-      </Test>
-      <Test>
+      </ChoiceBox>
+      <ChoiceBox>
         <Unicorn/>
         <SliderBox>
           <SliderLine />
           <MagicSlider/>
         </SliderBox>
         <Mermaid/>
-      </Test>
-
-      <Test3>
-        Motto:<br/>
-        Be uncommon.
-        <br/>
-        <br/>
-        Hometown:<br/>
-        North Pole, AK
-        <br/>
-        <br/>
-        Visit <a href="/feed">my blog</a>
-      </Test3>
-
-      <Test>
+      </ChoiceBox>
+      <ChoiceBox>
         <Doggo/>
         <SliderBox>
           <SliderLine />
           <PetSlider/>
         </SliderBox>
         <Cat/>
-      </Test>
-      <Test>
+      </ChoiceBox>
+      <ChoiceBox>
         <Tea/>
         <SliderBox>
           <SliderLine />
           <DrinkSlider/>
         </SliderBox>
         <Coffee/>
-      </Test>
-
-    </div>
+      </ChoiceBox>
+    </WrapperRight>
+  </FadeLeft>
 )

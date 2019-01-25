@@ -7,7 +7,6 @@ import LinkedIn from '../images/icons/linkedin.png'
 import Etsy from '../images/icons/etsy-icon_lccmlq.png'
 
 
-
 // ------------------ Styling ------------------
 
 
@@ -21,6 +20,7 @@ const Background = styled.div`
   background-attachment: fixed;
   background-position: 0px 3.5em;
   font-family: 'Josefin Slab', serif;
+  background-color: #686c4f;
 `
 
 const GoHome = styled.h1`

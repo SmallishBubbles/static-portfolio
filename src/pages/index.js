@@ -1,23 +1,21 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 
+// animations
+import FadeRight from "../components/animate-fade-right"
+
+
 // import { css } from "@emotion/core"
 // import { rhythm } from "../utils/typography"
 import Layout from "../components/layout"
 import styled from "styled-components"
 import PersonalPreferences from "../components/personal-preferences"
+import ExperienceTimeline from "../components/timeline"
 
 // ---- move to png files and gatsby image later
 import selfperson from "../images/icons/selfperson.svg"
 import forest from "../images/aboutmeforestbluelong.svg"
 
-// experience Section
-import StateStreet from '../images/logos/StateStreet.png';
-import Arrow from '../images/logos/Arrow.png';
-import SkillSpire from '../images/logos/SkillSpire.png';
-import Paper from '../images/logos/paperboat.png';
-import OCLogo from '../images/logos/OC.png';
-import SpicyEskimo from '../images/logos/SpicyEskimoArt.png';
 
 
 
@@ -60,42 +58,60 @@ const Section2 = styled(Section) `
   background-repeat: no-repeat;
   background-size: 100%;
   width: 100vw;
-  height: 75vw;
+  //height: 75vw;
+  height: auto;
+  margin-top: -1em;
+  position: relative;
+  overflow: hidden;
+  min-height: 100px;
 `
-
+const Skip = styled.button`
+  font-size: 1em;
+  margin: 0 1em 1em;
+  padding: 0.25em 1em;
+  border: 3px solid #2D4465;
+  background-color: #344f76;
+  border-radius: 30px;
+  :hover {
+    background-color: #954879;
+  }
+  :active, :focus, :visited {
+    outline: 0;
+  }
+`
 
 
 // about section main wrappers
 const WrapperLeft = styled.div`
 	width: 47%;
+  display: absolute;
 	// background-color: #344f76;
 	height: 83%;
 	margin-left: 2%;
 	margin-top: 12%;
+  margin-bottom: 1em;
 	float: left;
 	border-radius: 30px 400px 30px 30px;
-`;
-
-const WrapperRight = styled.div`
-	width: 47%;
-	background-color: #344f76;
-	height: auto;
-	margin-right: 2%;
-	margin-top: 27%;
-	float: right;
-	border-radius: 400px 30px 30px 30px;
-	padding: 2vh 0% 1vh;
-`;
+`
 
 const Skill = styled.div`
-	width: 90%;
+  width: 90%;
 	height: auto;
 	border-radius: 20px;
 	margin: 2% 2%;
 	padding: 1% 1%;
 	background-color: #344f76;
-	font-size: 1.5vw;
-`;
+	font-size: 1em;
+`
+
+const SkillTitle = styled(Skill)`
+  text-align: center;
+  font-size: 2.5em;
+  font-family: 'Sacramento', cursive;
+  height: 1.1em;
+  padding: 0;
+  background-color: transparent;
+`
 
 const Blurb = styled.div`
 	width: 85%;
@@ -104,7 +120,7 @@ const Blurb = styled.div`
 	margin: 10% 2% 4%;
 	background-color: #344f76;
 	padding: 5%;
-	font-size: 2.5vw;
+  font-size: calc(10px + 1.5vw);
   text-align:left;
 `;
 
@@ -127,10 +143,7 @@ const Section3 = styled(Section)`
 `
 
 const Title = styled.div`
-	float: center;
-	clear: both;
-	margin: 2vh auto;
-	padding: 2px;
+	margin: 0.25em auto 0;
 	height: auto;
 	width: 90%;
 	text-align: center;
@@ -138,93 +151,6 @@ const Title = styled.div`
 	font-family: 'Sacramento', cursive;
 `
 
-const TimeSection = styled.div`
-  width: 100vw;
-  height: auto;
-  float: left;
-  clear: both;
-`
-
-const ExperienceL = styled.div`
-	height: auto;
-	width: 43%;
-  min-width: 300px;
-	background-color: #344F76;
-	margin: 2vw;
-	border-radius: 25px;
-	text-align: center;
-	box-shadow: -2px -2px 5px inset #2d4465;
-	padding: 1%;
-  @media (max-width:700px){
-    margin-left: 15vw;
-  }
-`
-
-const ExperienceR = styled(ExperienceL)`
-  float: right;
-  @media (max-width:700px){
-    float: none;
-    margin-left: 15vw;
-  }
-`
-
-const Timeline = styled.div`
-	height: 90%;
-	width: 5px;
-	border-radius: 5px;
-	background-color: darkgrey;
-  position: absolute;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 2%;
-  left: 0;
-  right: 0;
-  @media (max-width:700px){
-    margin-left: 5vw;
-  }
-`
-const TimeArrow = styled.div`
-  width: 0;
-  height: 0;
-  border-top: 15px solid transparent;
-  border-bottom: 15px solid transparent;
-  border-left: 20px solid #344F76;
-  position: absolute;
-  margin-top: 5vw;
-  margin-left: 44.5%;
-  box-shadow: -2px -2px 5px inset #2d4465;
-  @media (max-width:700px){
-    margin-left: 11.5vw;
-    transform: rotate(180deg);
-  }
-`
-const TimeArrowL = styled(TimeArrow)`
-  right: 0;
-  margin-left: auto;
-  margin-right: 44.5%;
-  transform: rotate(180deg);
-  @media (max-width:700px){
-    left: 0;
-    margin-left: 11.5vw;
-    transform: rotate(180deg);
-  }
-`
-const TimeDot = styled.div`
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 5.25vw;
-  width: 25px;
-  height: 25px;
-  border: 5px solid darkgrey;
-  border-radius: 50%;
-  background-color: #2d4465;
-  @media (max-width:700px){
-    margin-left: 2.5vw;
-  }
-`
 
 
 // portfolio
@@ -264,7 +190,16 @@ export default ({ data }) => {
   			<Selfperson/>
   			<HeaderName>{data.site.siteMetadata.title} {/*Marisha Hoza*/}</HeaderName>
   			<HeaderTitle>Front End Web Developer</HeaderTitle>
-  			<p>Skip to <a href="" target="_blank" rel="noopener noreferrer">my paper resume </a>*to be added*</p>
+        <p>Skip to:</p>
+        <a
+          href="https://docs.google.com/document/d/1jEWfXGEg677qYoe43R1RCMUoCRBBxGHXVSQ8eswEj8k/edit?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer">
+            <Skip>My paper resume</Skip>
+        </a>
+        <Link to="/#portfolio">
+          <Skip>My portfolio</Skip>
+        </Link>
         <p>Please pardon the mess, I am in the middle of moving my portfolio to this location. </p>
       </Section>
 
@@ -282,96 +217,39 @@ export default ({ data }) => {
 							- Stacey Abrams
 						</Right>
 					</Blurb>
-					<Skill>HTML</Skill>
-					<Skill>CSS</Skill>
-					<Skill>JavaScript</Skill>
-					<Skill>React</Skill>
-					<Skill>GraphQL</Skill>
-					<Skill>Node / Express</Skill>
-					<Skill>NPM & Yarn</Skill>
-					<Skill>Git & GitHub</Skill>
-          <Skill>Adobe Suite</Skill>
+          <SkillTitle>Skills</SkillTitle>
+					<FadeRight><Skill>HTML</Skill></FadeRight>
+					<FadeRight><Skill>CSS</Skill></FadeRight>
+					<FadeRight><Skill>JavaScript</Skill></FadeRight>
+					<FadeRight><Skill>React.js</Skill></FadeRight>
+          <FadeRight><Skill>Gatsby.js</Skill></FadeRight>
+					<FadeRight><Skill>GraphQL</Skill></FadeRight>
+					<FadeRight><Skill>Node / Express</Skill></FadeRight>
+					<FadeRight><Skill>NPM & Yarn</Skill></FadeRight>
+					<FadeRight><Skill>Git & GitHub</Skill></FadeRight>
+          <FadeRight><Skill>Adobe Suite</Skill></FadeRight>
 				</WrapperLeft>
-        <WrapperRight>
-          <PersonalPreferences/>
-        </WrapperRight>
+        <PersonalPreferences/>
       </Section2>
 
 
       <Section3>
-      <Title> Experience </Title>
-      <Timeline/>
-      <TimeSection>
-        <TimeArrow/>
-        <TimeDot/>
-        <ExperienceL>
-          <img src={SkillSpire} width="50%" height="auto" alt="SkillSpire Logo"/>
-          <p> Full Stack Web Devolopment Bootcamp </p>
-          <p> March-July 2018 </p>
-        </ExperienceL>
-      </TimeSection>
-      <TimeSection>
-        <TimeArrowL/>
-        <TimeDot/>
-        <ExperienceR>
-          <img src={Arrow} width="45%" height="auto" alt="Arrow Emblems Logo"/>
-          <p> UI Designer - Customer Service Rep </p>
-          <p> Current </p>
-        </ExperienceR>
-      </TimeSection>
-      <TimeSection>
-        <TimeArrow/>
-        <TimeDot/>
-        <ExperienceL>
-          <img src={OCLogo} width="50%" height="auto" alt="OC Logo"/>
-          <p> BBA / Art Minor </p>
-          <p> 2011-2015 </p>
-        </ExperienceL>
-      </TimeSection>
-      <TimeSection>
-        <TimeArrowL/>
-        <TimeDot/>
-        <ExperienceR>
-          <img src={StateStreet} width="50%" height="auto" alt="State Street Logo"/>
-          <p> Functional Specialist / Financial Accountant </p>
-          <p> Jan 2016 - Aug 2017 </p>
-        </ExperienceR>
-      </TimeSection>
-      <TimeSection>
-        <TimeArrow/>
-        <TimeDot/>
-        <ExperienceL>
-          <a href="https://docs.google.com/document/d/1sBd1nafkn6v_ANm2CfoswxE_QdpmZZKLoVMjNVoalNE/edit?usp=sharing" target="_blank" rel="noopener noreferrer">
-          <img src={Paper} width="35%" height="auto" alt="Origami Paper Boat"/>
-          </a>
-          <p> Prefer to see my resume in <a href="https://docs.google.com/document/d/1sBd1nafkn6v_ANm2CfoswxE_QdpmZZKLoVMjNVoalNE/edit?usp=sharing" target="_blank" rel="noopener noreferrer">paper format?</a>
-          <br/>
-          **** links need updated ****
-          </p>
-        </ExperienceL>
-      </TimeSection>
-      <TimeSection>
-        <TimeArrowL/>
-        <TimeDot/>
-        <ExperienceR>
-          <img src={SpicyEskimo} width="50%" height="auto" alt="Spicy Eskimo Art Logo"/>
-          <p> Freelance Art </p>
-          <p> Ongoing </p>
-        </ExperienceR>
-      </TimeSection>
-    </Section3>
+        <Title> Experience </Title>
+        <ExperienceTimeline/>
+      </Section3>
 
-    <Section4>
-        <Title> Portfolio Projects </Title>
-        <Project> TBA </Project>
-        <Project> TBA </Project>
-        <Project> TBA </Project>
-        <Project> TBA </Project>
-        {/* <Project> Flashcards App Tutorial </Project>
-        <Project> Full-Stack Tutorial </Project>
-        <Project> Etsy and/or Art Portfolio Website </Project>
-        <Project> You.Me.We Community (??) </Project> */}
-    </Section4>
+      <a name ="portfolio"/>
+      <Section4>
+          <Title> Portfolio Projects </Title>
+          <Project> TBA </Project>
+          <Project> TBA </Project>
+          <Project> TBA </Project>
+          <Project> TBA </Project>
+          {/* <Project> Flashcards App Tutorial </Project>
+          <Project> Full-Stack Tutorial </Project>
+          <Project> Etsy and/or Art Portfolio Website </Project>
+          <Project> You.Me.We Community (??) </Project> */}
+      </Section4>
 
 
 
