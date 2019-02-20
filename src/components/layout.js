@@ -27,13 +27,25 @@ const GoHome = styled.h1`
   display: inline-block;
   font-family: 'Sacramento', script;
   font-size: 2em;
+  &:hover {
+    color: #344f76;
+  }
+  @media (max-width:450px){
+    font-size: 1.5em;
+  }
 `
 
 const NavItem = styled.h3`
   display: inline-block;
   font-family: 'Josefin Slab', serif;
   float: right;
-  margin: 0.2em 0;
+  margin: 0.2em 10px;
+  &:hover {
+    color: #344f76;
+  }
+  @media (max-width:450px){
+    font-size: 1.1em;
+  }
 `
 
 const Header = styled.header`
@@ -63,6 +75,10 @@ const SocialLink = styled.img`
     display: inline-block;
     float: right;
     margin: 0px 2%;
+    border-radius: 100%;
+    &:hover {
+    	box-shadow: 0px 2px 10px inset black;
+    }
 `
 
 const Contact = styled.div`
@@ -77,6 +93,9 @@ const Contact = styled.div`
 const Email = styled.a`
     text-decoration: none;
     color: black;
+    &:hover {
+    	color: #344f76;
+    }
 `
 
 
@@ -104,11 +123,12 @@ export default ({ children }) => (
               {data.site.siteMetadata.title}
             </GoHome>
           </Link>
-          <Link to={`/about/`}>
-            <NavItem>
-              About
-            </NavItem>
+          <Link to="/#portfolio">
+            <NavItem> Portfolio </NavItem>
           </Link>
+          <a href="https://docs.google.com/document/d/1Efyzk2zBMCjqcZrsAhfZnyvCUOUL8ih1VVhvFpae2VQ/edit?usp=sharing" target="_blank" rel="noopener noreferrer">
+            <NavItem> Resume </NavItem>
+          </a>
         </Header>
         {children}
         <Footer>

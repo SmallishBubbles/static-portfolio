@@ -194,7 +194,8 @@ export default () => (
           North Pole, AK
         </Fact>
         <Fact>
-          Visit <a href="/feed">my blog</a>
+          I like to: <br/>
+					Hike & Ski
         </Fact>
 
       </Test3>

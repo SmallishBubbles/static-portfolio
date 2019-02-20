@@ -16,8 +16,9 @@ import ExperienceTimeline from "../components/timeline"
 import selfperson from "../images/icons/selfperson.svg"
 import forest from "../images/aboutmeforestbluelong.svg"
 
-
-
+// project images
+import bubbleChart from "../images/projects/bubbleChart.png"
+import gameOfLife from "../images/projects/gameOfLife.png"
 
 
 
@@ -162,7 +163,7 @@ const Section4 = styled(Section)`
   min-height: 80vh;
 `
 
-const Project = styled.div`
+const Project = styled.a`
 	width: 25vw;
   min-width: 250px;
 	height: 20vw;
@@ -171,10 +172,41 @@ const Project = styled.div`
 	margin: 2%;
   border-radius: 32% 68% 31% 69% / 47% 17% 83% 53%;
   text-align: center;
-	box-shadow: 0px 2px 10px;
-	padding-top: 10%;
-	font-size: 3vw;
-	background-color: #344F76;
+  padding-top: 2%;
+  font-size: 3vw;
+  background-color: #344F76;
+
+  &:hover {
+  	box-shadow: 0px 2px 10px black;
+  }
+`
+
+const Project1 = styled(Project)`
+  background-image: url(${bubbleChart});
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: relative;
+  background-position: center;
+`
+
+const Project2 = styled(Project)`
+  background-image: url(${gameOfLife});
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: relative;
+  background-position: center;
+`
+
+const ProjectHolder = styled.div`
+  display: inline-block;
+  width: 25vw;
+  min-width: 250px;
+	height: auto;
+  min-height: 200px;
+	display: inline-block;
+	margin: 2%;
+  text-align: center;
+  font-size: 3vw;
 `
 
 
@@ -192,7 +224,7 @@ export default ({ data }) => {
   			<HeaderTitle>Front End Web Developer</HeaderTitle>
         <p>Skip to:</p>
         <a
-          href="https://docs.google.com/document/d/1jEWfXGEg677qYoe43R1RCMUoCRBBxGHXVSQ8eswEj8k/edit?usp=sharing"
+          href="https://docs.google.com/document/d/1Efyzk2zBMCjqcZrsAhfZnyvCUOUL8ih1VVhvFpae2VQ/edit?usp=sharing"
           target="_blank"
           rel="noopener noreferrer">
             <Skip>My paper resume</Skip>
@@ -200,23 +232,25 @@ export default ({ data }) => {
         <Link to="/#portfolio">
           <Skip>My portfolio</Skip>
         </Link>
-        <p>Please pardon the mess, I am in the middle of moving my portfolio to this location. </p>
+        
       </Section>
 
 
       <Section2>
         <WrapperLeft>
-					<Blurb>
-						<div>
-							Capability is not based on
-							<br/>
-							age or experience, but on how much you're willing to learn.
-							<br/>
-						</div>
-						<Right>
-							- Stacey Abrams
-						</Right>
-					</Blurb>
+          <FadeRight>
+  					<Blurb>
+  						<div>
+  							Capability is not based on
+  							<br/>
+  							age or experience, but on how much you're willing to learn.
+  							<br/>
+  						</div>
+  						<Right>
+  							- Stacey Abrams
+  						</Right>
+  					</Blurb>
+          </FadeRight>
           <SkillTitle>Skills</SkillTitle>
 					<FadeRight><Skill>HTML</Skill></FadeRight>
 					<FadeRight><Skill>CSS</Skill></FadeRight>
@@ -241,11 +275,20 @@ export default ({ data }) => {
       <a name ="portfolio"/>
       <Section4>
           <Title> Portfolio Projects </Title>
-          <Project> TBA </Project>
-          <Project> TBA </Project>
-          <Project> TBA </Project>
-          <Project> TBA </Project>
-          {/* <Project> Flashcards App Tutorial </Project>
+          <ProjectHolder>
+            Bubble Chart
+            <Project1 href="http://marisha-hoza-d3v4-bubblechart.surge.sh"/>
+          </ProjectHolder>
+          <ProjectHolder>
+            Game of Life
+            <Project2 href="http://marisha-hoza-gameoflife.surge.sh"/>
+          </ProjectHolder>
+          <ProjectHolder>
+            TBA
+            <Project/>
+          </ProjectHolder>
+          {/* <Project> TBA </Project>
+          <Project> Flashcards App Tutorial </Project>
           <Project> Full-Stack Tutorial </Project>
           <Project> Etsy and/or Art Portfolio Website </Project>
           <Project> You.Me.We Community (??) </Project> */}

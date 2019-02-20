@@ -24,11 +24,13 @@ const ExperienceL = styled.div`
 	height: auto;
 	width: 43%;
   min-width: 300px;
+  //background-color: white;
 	background-color: #344F76;
 	margin: 2vw;
 	border-radius: 25px;
 	text-align: center;
-	box-shadow: -2px -2px 5px inset #2d4465;
+  box-shadow: 2px 2px 5px;
+	// box-shadow: -2px -2px 5px inset #2d4465;
 	padding: 1%;
   @media (max-width:700px){
     margin-left: 15vw;
@@ -102,6 +104,16 @@ const TimeDot = styled.div`
   }
 `
 
+const Links = styled.a`
+  text-decoration: none;
+  color: lightgrey;
+  &:hover {
+    color: #3EABEA;
+  }
+`
+
+
+
 export default () => (
   <div>
     <Timeline/>
@@ -169,12 +181,10 @@ export default () => (
       <FadeRight>
         <TimeArrow/>
         <ExperienceL>
-          <a href="https://docs.google.com/document/d/1jEWfXGEg677qYoe43R1RCMUoCRBBxGHXVSQ8eswEj8k/edit?usp=sharing" target="_blank" rel="noopener noreferrer">
+          <a href="https://docs.google.com/document/d/1Efyzk2zBMCjqcZrsAhfZnyvCUOUL8ih1VVhvFpae2VQ/edit?usp=sharing" target="_blank" rel="noopener noreferrer">
           <img src={Paper} width="35%" height="auto" alt="Origami Paper Boat"/>
           </a>
-          <p> Prefer to see my resume in <a href="https://docs.google.com/document/d/1jEWfXGEg677qYoe43R1RCMUoCRBBxGHXVSQ8eswEj8k/edit?usp=sharing" target="_blank" rel="noopener noreferrer">paper format?</a>
-          <br/>
-          **** links need updated ****
+          <p> Prefer to see my experience in <Links href="https://docs.google.com/document/d/1Efyzk2zBMCjqcZrsAhfZnyvCUOUL8ih1VVhvFpae2VQ/edit?usp=sharing" target="_blank" rel="noopener noreferrer">resume format</Links>?
           </p>
         </ExperienceL>
       </FadeRight>
